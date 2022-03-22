@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--   id 이름
+    뒤로 가기  :  iv_home_backicon
+    메뉴  :  iv_home_menuicon
+    검색  :  iv_home_searchicon
+    스크랩  :  iv_home_scrapicon
+    홈  :  iv_home_homeicon
+    루트  :  iv_home_rooticon
+    마이페이지  :  iv_home_mypageicon
+
+    관광 버튼 - tour_btn
+    맛집 버튼 - food_btn
+    내주변 - near_btn
+    지역/테마별 버튼 - theme_btn
+    추천 루트 - root_btn
+    hot 실시간 인기 장소 리스트 - ho_hotplace_list
+    장소 더보기 >버튼 - ho_pl_btn
+    hot 리뷰 리스트 - ho_hotreview_list
+    리뷰 더보기 >버튼 - ho_re_btn
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#cae3ff"
+        android:elevation="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/iv_hr_backicon"
+            android:src="@drawable/back_icon" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginRight="70dp"
+            android:src="@drawable/logo" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/menu_icon"
+            android:id="@+id/iv_hr_menuicon" />
+
+    </LinearLayout>
+
+    <!-- 상단바 아래부터 하단바위까지-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="281dp"
+            android:background="@drawable/bridage"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/tour_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="135dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/tourbtn" />
+
+                <ImageButton
+                    android:id="@+id/food_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/foodbtn" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="124dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ho_pl_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginTop="30dp"
+                    android:baselineAligned="false"
+                    android:fontFamily="@font/notobold"
+                    android:text="광안리 해수욕장"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/ho_pl_intro1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:fontFamily="@font/font_medium"
+                    android:text="광안리 해수욕장"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/ho_pl_intro2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:fontFamily="@font/font_medium"
+                    android:text="광안리 해수욕장"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/near_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="45dp"
+                    android:backgroundTint="#05ECECEC"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/near" />
+
+                <ImageButton
+                    android:id="@+id/theme_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:backgroundTint="#00ECECEC"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/theme" />
+
+                <ImageButton
+                    android:id="@+id/root_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:backgroundTint="#00F6F1F1"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/root" />
+
+            </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notobold"
+                android:textColor="@color/black"
+                android:text=" Hot (실시간인기) 장소" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="180dp"
+                android:fontFamily="@font/notoblack"
+                android:text="더보기" />
+
+            <ImageButton
+                android:id="@+id/ho_pl_btn"
+                android:layout_width="42dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#00FFFFFF"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/the" />
+
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/ho_hotplace_list"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#131313"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notobold"
+                android:text=" Hot 리뷰"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="260dp"
+                android:fontFamily="@font/notoblack"
+                android:text="더보기" />
+
+            <ImageButton
+                android:id="@+id/ho_re_btn"
+                android:layout_width="42dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#00FFFFFF"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/the" />
+
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/ho_hotreview_list"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 하단바 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_home_searchicon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/search_icon" />
+
+        <ImageView
+            android:id="@+id/iv_home_scrapicon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/scrap_icon" />
+
+        <ImageView
+            android:id="@+id/iv_home_homeicon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/home_icon" />
+
+        <ImageView
+            android:id="@+id/iv_home_rooticon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/root_icon" />
+
+        <ImageView
+            android:id="@+id/iv_home_mypageicon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/mypage_icon" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

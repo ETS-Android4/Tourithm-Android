@@ -15,6 +15,7 @@
     마이페이지  :  iv_hr_mypageicon     -->
 
 
+    <!-- 상단바 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -43,6 +44,7 @@
 
     </LinearLayout>
 
+    <!-- 리스트뷰 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,6 +57,7 @@
 
     </LinearLayout>
 
+    <!-- 하단바 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
