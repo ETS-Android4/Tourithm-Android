@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/shadow_logo" />
 
     <TextView
         android:layout_width="match_parent"
@@ -13,8 +18,9 @@
         android:fontFamily="@font/notoregular"
         android:textColor="@color/black"
         android:text="잠시 후 앱이 실행됩니다."
-        android:textSize="17dp"
-        android:textAlignment="center"/>
+        android:textSize="18dp"
+        android:textAlignment="center"
+        tools:ignore="RtlCompat" />
 
 
 </LinearLayout>
