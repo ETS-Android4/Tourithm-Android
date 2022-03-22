@@ -15,6 +15,7 @@
     마이페이지  :  iv_home_mypageicon     -->
 
 
+    <!-- 상단바 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -43,7 +44,7 @@
 
     </LinearLayout>
 
-    <!--레이아웃 없애고 중간 부분 넣으면 됨 -->
+    <!-- 레이아웃 없애고 중간 부분 넣으면 됨 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,6 +57,7 @@
 
     </LinearLayout>
 
+    <!-- 하단바 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
