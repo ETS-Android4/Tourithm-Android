@@ -20,13 +20,14 @@
         </activity>
 
         <activity
-            android:name=".RankDetails"
+            android:name=".ReviewWrite"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.Main" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
     </application>
 

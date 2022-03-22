@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--
+        뒤로가기 : rw_home_backicon
+        메뉴 : rw_home_menuicon
+        가게 이름 : rw_name
+        별점 : rw_star
+        내용 : rw_comment
+        사진 : rw_image_1 ~ rw_image_5
+        취소 : rw_cancel
+        등록 : rw_register
+
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#cae3ff"
+        android:elevation="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/rw_home_backicon"
+            android:src="@drawable/back_icon" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginRight="70dp"
+            android:src="@drawable/logo" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/menu_icon"
+            android:id="@+id/rw_home_menuicon" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/rw_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="가게 이름"
+            android:fontFamily="@font/notobold"
+            android:textColor="#000000"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notoregular"
+            android:textColor="@color/black"
+            android:layout_marginStart="5dp"
+            android:text="에 대한 솔직한 리뷰를 써주세요."/>
+
+    </LinearLayout>
+
+
+    <RatingBar
+        android:id="@+id/rw_star"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:isIndicator="false"
+        android:layout_gravity="center"
+        android:progressTint="#FFCE6C"
+        android:secondaryProgressTint="#FFCE6C"
+        android:numStars="5"
+        android:rating="0"
+        android:stepSize="1" />
+
+    <EditText
+        android:id="@+id/rw_comment"
+        android:layout_marginTop="20dp"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:gravity="top"
+        android:fontFamily="@font/notoregular"
+        android:background="@drawable/black_border_line"
+        android:hint="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"
+        android:textSize="13dp"
+        android:inputType="textMultiLine"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/rw_image_1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/black_border_line"
+            android:padding="7dp"
+            android:src="@drawable/camera" />
+
+        <ImageView
+            android:id="@+id/rw_image_2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:src="#00FF0000" />
+
+        <ImageView
+            android:id="@+id/rw_image_3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="fitCenter"
+            android:padding="7dp"
+            android:src="#00FF0000" />
+
+        <ImageView
+            android:id="@+id/rw_image_4"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="fitCenter"
+            android:padding="7dp"
+            android:src="#00FF0000" />
+
+        <ImageView
+            android:id="@+id/rw_image_5"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="fitCenter"
+            android:padding="7dp"
+            android:src="#00FF0000" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="right"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/rw_cancel"
+            android:layout_width="90dp"
+            android:layout_height="45dp"
+            android:background="@drawable/black_border_line"
+            android:text="취소"
+            android:fontFamily="@font/notomedium"
+            android:textSize="17dp"/>
+
+        <Button
+            android:id="@+id/rw_register"
+            android:layout_width="90dp"
+            android:layout_height="45dp"
+            android:background="@drawable/blue_btn"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="등록"
+            android:fontFamily="@font/notomedium"
+            android:textSize="17dp"/>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
