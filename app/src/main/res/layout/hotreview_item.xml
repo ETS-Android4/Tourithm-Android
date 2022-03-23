@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_hotreview_rank"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="26dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/notoblack"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <LinearLayout
+        android:layout_width="270dp"
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_hotreview_name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="관광지 이름"
+            android:textSize="22dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/notobold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:rating="3.4"
+                android:id="@+id/rb_hotreview_starshape"
+                android:layout_marginTop="11dp"/>
+
+            <TextView
+                android:id="@+id/tv_hotreview_starscore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.4"
+                android:textSize="13dp"
+                android:fontFamily="@font/notoregular"
+                android:layout_marginLeft="10dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="조회수"
+                    android:textSize="13dp"
+                    android:fontFamily="@font/notoregular"
+                    android:layout_marginLeft="30dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_hotreview_views"
+                    android:text="1243"
+                    android:textSize="13dp"
+                    android:fontFamily="@font/notoregular"
+                    android:layout_marginLeft="5dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="82dp"
+        android:layout_height="80dp"
+        android:id="@+id/iv_hotreview_item"
+        android:src="@drawable/test"
+        android:gravity="center"/>
+
+</LinearLayout>
