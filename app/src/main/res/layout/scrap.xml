@@ -16,25 +16,27 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#cae3ff"
-        android:elevation="10dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="#00FF0000"
+            android:scaleType="fitCenter"
             android:id="@+id/sc_home_backicon"
             android:src="@drawable/back_icon" />
 
         <ImageView
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="75dp"
-            android:layout_marginRight="70dp"
+            android:layout_weight="1"
             android:src="@drawable/logo" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="#00FF0000"
+            android:scaleType="fitCenter"
             android:src="@drawable/menu_icon"
             android:id="@+id/sc_home_menuicon" />
 

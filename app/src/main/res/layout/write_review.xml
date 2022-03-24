@@ -20,25 +20,27 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#cae3ff"
-        android:elevation="10dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="#00FF0000"
+            android:scaleType="fitCenter"
             android:id="@+id/rw_home_backicon"
             android:src="@drawable/back_icon" />
 
         <ImageView
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="75dp"
-            android:layout_marginRight="70dp"
+            android:layout_weight="1"
             android:src="@drawable/logo" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="#00FF0000"
+            android:scaleType="fitCenter"
             android:src="@drawable/menu_icon"
             android:id="@+id/rw_home_menuicon" />
 
@@ -56,14 +58,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="가게 이름"
-            android:fontFamily="@font/notobold"
+            android:textStyle="bold"
             android:textColor="#000000"
             android:textSize="18dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notoregular"
             android:textColor="@color/black"
             android:layout_marginStart="5dp"
             android:text="에 대한 솔직한 리뷰를 써주세요."/>
@@ -92,7 +93,6 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:gravity="top"
-        android:fontFamily="@font/notoregular"
         android:background="@drawable/black_border_line"
         android:hint="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"
         android:textSize="13dp"
@@ -101,7 +101,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -167,7 +167,6 @@
             android:layout_height="45dp"
             android:background="@drawable/black_border_line"
             android:text="취소"
-            android:fontFamily="@font/notomedium"
             android:textSize="17dp"/>
 
         <Button
@@ -178,7 +177,6 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
             android:text="등록"
-            android:fontFamily="@font/notomedium"
             android:textSize="17dp"/>
 
 

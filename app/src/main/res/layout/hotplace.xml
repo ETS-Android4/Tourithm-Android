@@ -17,32 +17,64 @@
 
     <!-- 상단바 -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:background="#cae3ff"
-        android:elevation="10dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_backicon"
             android:src="@drawable/back_icon" />
 
         <ImageView
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="75dp"
-            android:layout_marginRight="70dp"
+            android:layout_weight="1"
             android:src="@drawable/logo" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="#00FF0000"
+            android:scaleType="fitCenter"
             android:src="@drawable/menu_icon"
             android:id="@+id/iv_hp_menuicon" />
 
+
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_underline"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:fontFamily="@font/notoblack"
+            android:gravity="center"
+            android:text="H O T"
+            android:textColor="#FFFD3B72"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/black_underline"
+            android:fontFamily="@font/notoblack"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="관 광 지  순 위"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+    </LinearLayout>
+
 
     <!-- 리스트뷰 -->
     <LinearLayout
@@ -66,37 +98,47 @@
         android:gravity="center"
         android:elevation="15dp">
 
-        <ImageView
+        <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_searchicon"
             android:src="@drawable/search_icon"
             android:layout_marginRight="15dp" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_scrapicon"
             android:src="@drawable/scrap_icon"
             android:layout_marginRight="15dp" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_homeicon"
             android:src="@drawable/home_icon"
             android:layout_marginRight="15dp" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_rooticon"
             android:src="@drawable/root_icon"
             android:layout_marginRight="15dp" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_mypageicon"
             android:src="@drawable/mypage_icon" />
 

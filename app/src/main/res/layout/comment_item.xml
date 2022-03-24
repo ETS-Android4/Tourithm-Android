@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="10dp"
     android:orientation="horizontal">
 
 
@@ -11,7 +12,6 @@
         android:id="@+id/my_image"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/baseimage" />
 
         <TextView
@@ -19,8 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:fontFamily="@font/notoregular"
-            android:text="여기 별롭니다.. 가지마세요 여러분"
+            android:text="길어도 괜찮네요길어도 괜찮네요길어도 괜찮네요길어도 괜찮네요길어도 괜찮네요"
             android:textColor="@color/black"
             android:textSize="13dp" />
 
