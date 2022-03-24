@@ -43,7 +43,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btn_close1"
+            android:id="@+id/dw_btn_close"
             android:layout_width="14dp"
             android:layout_height="14dp"
             android:layout_marginStart="18dp"

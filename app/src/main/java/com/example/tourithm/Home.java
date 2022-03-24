@@ -1,6 +1,7 @@
 package com.example.tourithm;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -56,7 +57,13 @@ public class Home extends AppCompatActivity {
     public void btnOnclick(View view) {
         switch (view.getId()){
             case R.id.iv_hr_menuicon:
-                drawerLayout.openDrawer(drawerView);
+                drawerLayout.openDrawer(Gravity.RIGHT);
+            case R.id.dw_btn_close:
+                drawerLayout.closeDrawer(Gravity.RIGHT);
         }
+    }
+
+    public void btnOnClick(View view){
+        //dw_btn_close
     }
 }
