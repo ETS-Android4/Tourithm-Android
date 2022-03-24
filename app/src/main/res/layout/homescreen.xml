@@ -36,20 +36,20 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="#cae3ff"
-            android:elevation="10dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:background="#00FFFFFF"
+                android:scaleType="fitCenter"
                 android:id="@+id/iv_hr_backicon"
                 android:src="@drawable/back_icon" />
 
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="75dp"
-                android:layout_marginRight="70dp"
+                android:layout_weight="1"
                 android:src="@drawable/logo" />
 
             <ImageButton
@@ -115,7 +115,8 @@
                         android:layout_gravity="bottom|center"
                         android:layout_marginTop="30dp"
                         android:baselineAligned="false"
-                        android:fontFamily="@font/notobold"
+                        android:textStyle="bold"
+                        android:textSize="17dp"
                         android:text="광안리 해수욕장"
                         android:textColor="@color/white" />
 
@@ -124,7 +125,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|center"
-                        android:fontFamily="@font/font_medium"
+                        android:layout_marginTop="8dp"
                         android:text="광안리 해수욕장"
                         android:textColor="@color/white" />
 
@@ -132,8 +133,8 @@
                         android:id="@+id/ho_pl_intro2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:layout_gravity="bottom|center"
-                        android:fontFamily="@font/font_medium"
                         android:text="광안리 해수욕장"
                         android:textColor="@color/white" />
 
@@ -178,34 +179,40 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/black_underline"
+                android:paddingBottom="10dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView4"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/notobold"
+                    android:layout_height="match_parent"
                     android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
                     android:text=" Hot (실시간인기) 장소" />
 
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"/>
+
                 <TextView
-                    android:id="@+id/textView5"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="180dp"
-                    android:fontFamily="@font/notoblack"
+                    android:layout_height="match_parent"
+                    android:textSize="15sp"
                     android:text="더보기" />
 
                 <ImageButton
                     android:id="@+id/ho_pl_btn"
-                    android:layout_width="42dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:padding="8dp"
                     android:backgroundTint="#00FFFFFF"
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/the" />
@@ -222,35 +229,40 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#131313"
+                android:background="@drawable/black_underline"
+                android:paddingBottom="10dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView6"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/notobold"
+                    android:layout_height="match_parent"
                     android:text=" Hot 리뷰"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
                     android:textColor="@color/black" />
 
+                <LinearLayout
+                    android:layout_width="237dp"
+                    android:layout_height="match_parent" />
+
                 <TextView
-                    android:id="@+id/textView7"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="260dp"
-                    android:fontFamily="@font/notoblack"
+                    android:layout_height="match_parent"
+                    android:textSize="15sp"
                     android:text="더보기" />
 
                 <ImageButton
                     android:id="@+id/ho_re_btn"
-                    android:layout_width="42dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:padding="8dp"
                     android:backgroundTint="#00FFFFFF"
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/the" />
@@ -273,38 +285,48 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/iv_home_searchicon"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:background="#00FFFFFF"
+                android:scaleType="fitCenter"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/search_icon" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/iv_home_scrapicon"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:background="#00FFFFFF"
+                android:scaleType="fitCenter"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/scrap_icon" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/iv_home_homeicon"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:background="#00FFFFFF"
+                android:scaleType="fitCenter"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/home_icon" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/iv_home_rooticon"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:background="#00FFFFFF"
+                android:scaleType="fitCenter"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/root_icon" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/iv_home_mypageicon"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:background="#00FFFFFF"
+                android:scaleType="fitCenter"
                 android:src="@drawable/mypage_icon" />
 
         </LinearLayout>

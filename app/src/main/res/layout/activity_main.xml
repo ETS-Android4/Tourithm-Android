@@ -6,19 +6,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp"/>
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="118dp"
         android:scaleType="fitCenter"
         android:src="@drawable/shadow_logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/notoregular"
+        android:layout_weight="1"
         android:textColor="@color/black"
         android:text="잠시 후 앱이 실행됩니다."
-        android:textSize="18dp"
+        android:textSize="17dp"
         android:textAlignment="center"
         tools:ignore="RtlCompat" />
 

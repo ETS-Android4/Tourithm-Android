@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="5dp"
+    android:padding="7dp"
     android:background="@drawable/black_underline"
     android:orientation="horizontal">
 
@@ -13,7 +13,6 @@
         android:id="@+id/sc_image"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_margin="3dp"
         android:background="@drawable/foodex"
         android:scaleType="fitCenter" />
 
@@ -27,23 +26,20 @@
             android:id="@+id/sc_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notomedium"
             android:text="가게 및 관광지 이름"
             android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:textSize="17dp" />
 
         <TextView
             android:id="@+id/sc_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notoregular"
+            android:layout_marginTop="7dp"
             android:textColor="@color/black"
             android:text="부산광역시 수영구 광안해변로279번길 13"
-            android:textSize="12dp"/>
+            android:textSize="13dp"/>
 
 
     </LinearLayout>
-
-
 
 </LinearLayout>

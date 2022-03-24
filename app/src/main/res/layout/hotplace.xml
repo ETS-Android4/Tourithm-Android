@@ -17,30 +17,33 @@
 
     <!-- 상단바 -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:background="#cae3ff"
-        android:elevation="10dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_backicon"
             android:src="@drawable/back_icon" />
 
         <ImageView
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="75dp"
-            android:layout_marginRight="70dp"
+            android:layout_weight="1"
             android:src="@drawable/logo" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="#00FF0000"
+            android:scaleType="fitCenter"
             android:src="@drawable/menu_icon"
             android:id="@+id/iv_hp_menuicon" />
+
 
     </LinearLayout>
 
@@ -66,37 +69,47 @@
         android:gravity="center"
         android:elevation="15dp">
 
-        <ImageView
+        <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_searchicon"
             android:src="@drawable/search_icon"
             android:layout_marginRight="15dp" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_scrapicon"
             android:src="@drawable/scrap_icon"
             android:layout_marginRight="15dp" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_homeicon"
             android:src="@drawable/home_icon"
             android:layout_marginRight="15dp" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_rooticon"
             android:src="@drawable/root_icon"
             android:layout_marginRight="15dp" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
             android:id="@+id/iv_hp_mypageicon"
             android:src="@drawable/mypage_icon" />
 
