@@ -38,8 +38,7 @@
         <ImageView
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="75dp"
-            android:layout_marginRight="70dp"
+            android:layout_weight="1"
             android:src="@drawable/logo" />
 
         <ImageButton
@@ -55,7 +54,8 @@
     <ScrollView
         android:id="@+id/fd_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
@@ -243,6 +243,60 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:elevation="15dp">
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:id="@+id/iv_hr_searchicon"
+            android:src="@drawable/search_icon"
+            android:layout_marginRight="15dp" />
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:id="@+id/iv_hr_scrapicon"
+            android:src="@drawable/scrap_icon"
+            android:layout_marginRight="15dp" />
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:id="@+id/iv_hr_homeicon"
+            android:src="@drawable/home_icon"
+            android:layout_marginRight="15dp" />
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:id="@+id/iv_hr_rooticon"
+            android:src="@drawable/root_icon"
+            android:layout_marginRight="15dp" />
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:id="@+id/iv_hr_mypageicon"
+            android:src="@drawable/mypage_icon" />
+
+    </LinearLayout>
 
 
 </LinearLayout>
