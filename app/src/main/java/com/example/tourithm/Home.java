@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,6 +32,24 @@ public class Home extends AppCompatActivity {
                 return true;
             }
         });
+
+        ImageButton buttonMenu = (ImageButton) findViewById(R.id.iv_hr_menuicon); // Open
+        buttonMenu.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!drawerLayout.isDrawerOpen(Gravity.RIGHT)) {
+                    drawerLayout.openDrawer(Gravity.RIGHT);
+                }
+            }
+        });
+
+        Button buttonClose = (Button) findViewById(R.id.dw_btn_close); // Close
+        buttonClose.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    drawerLayout.closeDrawer(Gravity.RIGHT);
+            }
+        });
     }
 
     DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() {
@@ -53,17 +73,4 @@ public class Home extends AppCompatActivity {
             // 특정상태가 변결될 때 호출
         }
     };
-
-    public void btnOnclick(View view) {
-        switch (view.getId()){
-            case R.id.iv_hr_menuicon:
-                drawerLayout.openDrawer(Gravity.RIGHT);
-            case R.id.dw_btn_close:
-                drawerLayout.closeDrawer(Gravity.RIGHT);
-        }
-    }
-
-    public void btnOnClick(View view){
-        //dw_btn_close
-    }
 }
