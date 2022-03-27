@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tourithm">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.tourithm"
+    tools:ignore="CoarseFineLocation">
+
+    <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
+    </uses-permission>
 
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Tourithm">
+        android:theme="@style/Theme.Tourithm"
+        android:networkSecurityConfig="@xml/network_security_config">
+<!--
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -18,9 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+-->
         <activity
-            android:name=".ReviewWrite"
+            android:name=".Map"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.Main" />
@@ -30,8 +40,7 @@
 
         <activity android:name=".Home" />
 
-        <activity android:name=".Home"/>
-
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="a108e5feeffbfefdc2e9fdbb6a04b2c3"/>
 
     </application>
 
