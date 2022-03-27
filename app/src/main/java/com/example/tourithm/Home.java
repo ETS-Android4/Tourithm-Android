@@ -55,12 +55,12 @@ public class Home extends AppCompatActivity {
     DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() {
         @Override
         public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
-            //슬라이드 했을때
+            // 슬라이드 했을때
         }
 
         @Override
         public void onDrawerOpened(@NonNull View drawerView) {
-            //Drawer가 오픈된 상황일때 호출
+            // Drawer가 오픈된 상황일때 호출
         }
 
         @Override
