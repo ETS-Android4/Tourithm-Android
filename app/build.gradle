@@ -28,6 +28,8 @@ android {
 }
 
 dependencies {
+    implementation 'com.naver.maps:map-sdk:3.14.0'  // 지도
+    implementation 'com.google.android.gms:play-services-location:16.0.0' // 위치
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
