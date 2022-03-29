@@ -49,6 +49,8 @@
 
         <activity android:name=".Login" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".Join" />
+        <activity android:name=".JoinActivity" />
 
     </application>
 

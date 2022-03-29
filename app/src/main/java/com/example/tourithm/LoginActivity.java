@@ -30,14 +30,14 @@ public class LoginActivity extends AppCompatActivity {
         Intent loginIntent = getIntent();
         user_id = loginIntent.getStringExtra("user_id");
         user_pw = loginIntent.getStringExtra("user_pw");
-        Log.d("[TAG] 로그인 디버깅", "사용자 입력값: " + user_id + " " + user_pw + "/[INTENT]");
+        Log.d("[TAG] 로그인 디버깅", "User Input: (ID)" + user_id + " / (PW)" + user_pw);
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     // 인코딩 문제때문에 한글 DB인 경우 로그인 불가
-                    Log.d("[TAG] 로그인 디버깅", "DB 연결 여부 " + response); // 디버깅 - php 파일 전부 보여줌
+                    Log.d("[TAG] 로그인 디버깅", "DB Response: " + response); // 디버깅 - php 파일 전부 보여줌
                     JSONObject jsonObject = new JSONObject(response);
                     boolean success = jsonObject.getBoolean("success"); // 연결 성공시 success = true
 

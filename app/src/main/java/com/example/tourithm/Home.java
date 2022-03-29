@@ -62,7 +62,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent loginintent = new Intent(getApplicationContext(), Login.class);
-                startActivity(loginintent); // 필수. 안넣으면 인텐트 안보내짐!
+                startActivity(loginintent);
             }
         });
     }
