@@ -18,8 +18,8 @@ import org.w3c.dom.Text;
 
 public class MapAdapter extends InfoWindow.DefaultViewAdapter {
 
-    private final Context mContext;
-    private final ViewGroup mParent;
+    Context mContext;
+    ViewGroup mParent;
 
     public MapAdapter(@NonNull Context context, ViewGroup parent){
         super(context);
