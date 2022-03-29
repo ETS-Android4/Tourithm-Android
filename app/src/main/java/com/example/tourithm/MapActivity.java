@@ -79,15 +79,6 @@ public class MapActivity extends FragmentActivity implements com.naver.maps.map.
         CameraUpdate cameraUpdate = CameraUpdate.scrollTo(latlng);
         naverMap.moveCamera(cameraUpdate);
 
-        /*
-        // 지도 각도 입체적으로 하는거
-        CameraPosition cameraPosition = new CameraPosition(
-                new LatLng(33.38, 126.55),   // 위치 지정
-                9,                           // 줌 레벨
-                45,                           // 기울임 각도
-                45                           // 방향
-        );*/
-
         // 마커 _ 관광지
         // 숫자 대신 Marker.SIZE_AUTO 하면 자동으로 크기 설정됨
         pl_marker.setWidth(70);
@@ -128,7 +119,7 @@ public class MapActivity extends FragmentActivity implements com.naver.maps.map.
                 //인포창의 우선순위
                 infoWindow.setZIndex(10);
                 //투명도 조정
-                infoWindow.setAlpha(0.9f);
+                infoWindow.setAlpha(0.95f);
                 //인포창 표시
                 infoWindow.open(pl_marker);
             } else {
