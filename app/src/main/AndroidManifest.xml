@@ -23,29 +23,32 @@
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="621cf0xzij"/>
 
-        <!--
-                <activity
-                    android:name=".MainActivity"
-                    android:exported="true">
-                    <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
-
-                        <category android:name="android.intent.category.LAUNCHER" />
-                    </intent-filter>
-                </activity>
-        -->
         <activity
-            android:name=".MapActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.Main" />
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <!--
+                <activity
+                    android:name=".MapActivity"
+                    android:exported="true">
+                    <intent-filter>
+                        <action android:name="android.intent.action.Main" />
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
+                </activity>
+        -->
+
         <activity android:name=".Home" />
         <activity android:name=".PlaceData" />
         <activity android:name=".PlaceData_Activity" />
+
+        <activity android:name=".Login" />
+        <activity android:name=".LoginActivity" />
 
     </application>
 
