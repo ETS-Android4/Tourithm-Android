@@ -3,7 +3,6 @@ package com.example.tourithm;
 import android.Manifest;
 import android.os.Bundle;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

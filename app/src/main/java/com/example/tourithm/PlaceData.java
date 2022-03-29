@@ -1,6 +1,5 @@
 package com.example.tourithm;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +19,8 @@ import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+
+import Adapter.PlaceData_Adapter;
 
 public class PlaceData extends AppCompatActivity {
 
