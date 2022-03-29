@@ -4,6 +4,12 @@
     package="com.example.tourithm"
     tools:ignore="CoarseFineLocation">
 
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
@@ -12,19 +18,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tourithm">
-<!--
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
--->
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="621cf0xzij"/>
+
+        <!--
+                <activity
+                    android:name=".MainActivity"
+                    android:exported="true">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
+
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
+                </activity>
+        -->
         <activity
-            android:name=".Map"
+            android:name=".MapActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.Main" />
@@ -33,6 +44,8 @@
         </activity>
 
         <activity android:name=".Home" />
+        <activity android:name=".PlaceData" />
+        <activity android:name=".PlaceData_Activity" />
 
     </application>
 
