@@ -4,7 +4,7 @@
         <item
             android:id="@+id/item_login"
             android:textSize="18sp"
-            android:title="로그인" />
+            android:title="지역·테마별 검색" />
         <item
             android:id="@+id/item_scrap"
             android:textSize="18sp"

@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent i = new Intent(MainActivity.this, Home.class);
+                //i.putExtra("user_id", null);
                 startActivity(i);
                 finish();
             }
         }, 3000); // 4초 대기
     }
-
 }
