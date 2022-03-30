@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -40,6 +41,11 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homescreen);
 
+        String loginUser;
+        Intent intent = getIntent();
+        loginUser = intent.getStringExtra("user_id");
+        Log.d("[DEBUG] USER ID INTENT RESPONSE: ", loginUser + " 님");
+
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         // 상단 ToolBar 설정 (API 25 이후 AppBar 사용 X -> ToolBar로 대체)
@@ -47,13 +53,10 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼 활성화
         getSupportActionBar().setDisplayShowTitleEnabled(false); // 앱 기본 타이틀(Tourithm) 없애기
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#cae3ff")));
-        /*getSupportActionBar().setDisplayShowCustomEnabled(true);// 커스터마이징 하기 위해 필요
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 툴바 메뉴버튼 생성
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu_icon); // 메뉴 버튼 모양 설정 */
 
         // Navigation Bar 아이템 동적 추가
         LinearLayout ll_navigation_container = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.navbar_head, null);
-        //네비게이션 드로어 헤더 설정
+        // Navigation Drawer 헤더 설정
         ll_navigation_container.setBackground(new ColorDrawable(Color.parseColor("#999999")));
         ll_navigation_container.setPadding(20, 150, 40, 50);
         ll_navigation_container.setOrientation(LinearLayout.VERTICAL);
@@ -85,7 +88,7 @@ public class Home extends AppCompatActivity {
         param2.setMargins(20, 0, 20, 10);
         tv_userhi.setLayoutParams(param2);
 
-        // 로그인 여부 판단해서 로그인하지 않은 경우 사용자 정보 표시 안함
+        // TEXTVIEW: 로그인(No Login) or 로그아웃(Login)
         final TextView tv_login_or_out = new TextView(this);
         tv_login_or_out.setTextColor(getResources().getColor(R.color.black));
         tv_login_or_out.setTextSize(15);
@@ -94,12 +97,10 @@ public class Home extends AppCompatActivity {
         tv_login_or_out.setGravity(Gravity.RIGHT);
         tv_login_or_out.setLayoutParams(param3);
 
-        String loginUser = null; // TODO: 로그인 유저 정보 인텐트로 받기
-
-        /* TODO: 네비게이션 헤더에서 현재 로그인중인 사용자를 보여주기 위해 데이터를 가져오는 코드 */
+        /*** 로그인한 경우 네비게이션 헤더에 현재 로그인중인 사용자의 닉네임을 출력함(동적) ***/
         if (loginUser != null) {
-            // 유저 아이디 혹은 이름(표시할 정보) String으로 받아옴
-            tv_username.setText("여행자님,");
+            // 유저 아이디 혹은 이름(표시할 정보) String으로 받아옴 -> 추후 유저 이름으로 수정
+            tv_username.setText(loginUser + " 님,");
             tv_userhi.setText("안녕하세요!");
 
             tv_login_or_out.setText("로그아웃");
@@ -139,7 +140,7 @@ public class Home extends AppCompatActivity {
                 drawerLayout.closeDrawers();
                 int id = menuItem.getItemId();
 
-                if(id == R.id.item_login) {
+                if(id == R.id.item_login) { // Side Bar - 로그인 버튼 클릭
                     Intent loginIntent = new Intent(getApplicationContext(), Login.class);
                     startActivity(loginIntent);
                 }
@@ -195,14 +196,13 @@ public class Home extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.navbar_btn, menu);
         return true;
     }
 
-    // 메인 화면에서 메뉴 버튼을 클릭했을 때의 행동
+    // 메인 화면에서 메뉴 버튼을 클릭 (Navigation Drawer Open)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -239,11 +239,13 @@ public class Home extends AppCompatActivity {
     };*/
 
     @Override
-    public void onBackPressed() {  // 메인 화면에서 뒤로가기 버튼 2회 누르면 앱 종료
+    public void onBackPressed() {  // 뒤로가기 버튼 클릭한 경우
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(Gravity.RIGHT)) {
             drawer.closeDrawer(Gravity.RIGHT);
-        }
+        } // Navigation Drawer가 열려있다면 종료
+
+        // 메인 화면에서 뒤로가기 버튼 2회 누르면 앱 종료
         // 2000 milliseconds = 2 seconds
         // 가장 최근에 뒤로가기 버튼을 누른 시간에 2초를 더해 현재시간과 비교 후, 2초가 지났으면 메시지 출력
         if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
