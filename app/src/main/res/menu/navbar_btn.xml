@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    <!--<item
+        android:id="@+id/tb_back"
+        android:icon="@drawable/back_icon"
+        android:title="back"
+        app:showAsAction="always"
+        android:orderInCategory="0" />-->
+    <item
+        android:id="@+id/tb_menu"
+        android:icon="@drawable/menu_icon"
+        android:title="menu"
+        app:showAsAction="always"
+        android:orderInCategory="1" />
+</menu>
