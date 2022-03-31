@@ -1,0 +1,86 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/iv_home_searchicon"
+        android:enabled="true"
+        android:icon="@drawable/search_icon"
+        android:background="#00FFFFFF"
+        android:title="검색"/>
+    <item
+        android:id="@+id/iv_home_scrapicon"
+        android:enabled="true"
+        android:icon="@drawable/scrap_icon"
+        android:background="#00FFFFFF"
+        android:title="스크랩"/>
+    <item
+        android:id="@+id/iv_home_homeicon"
+        android:enabled="true"
+        android:icon="@drawable/home_icon"
+        android:background="#00FFFFFF"
+        android:title="홈"/>
+    <item
+        android:id="@+id/iv_home_rooticon"
+        android:enabled="true"
+        android:icon="@drawable/root_icon"
+        android:background="#00FFFFFF"
+        android:title="내 루트"/>
+    <item
+        android:id="@+id/iv_home_mypageicon"
+        android:enabled="true"
+        android:icon="@drawable/mypage_icon"
+        android:background="#00FFFFFF"
+        android:title="마이페이지"/>
+</menu>
+
+<!--
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="@color/white"
+android:gravity="center"
+android:orientation="horizontal">
+
+<ImageButton
+    android:id="@+id/iv_home_searchicon"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:layout_marginRight="15dp"
+    android:background="#00FFFFFF"
+    android:scaleType="fitCenter"
+    android:src="@drawable/search_icon" />
+
+<ImageButton
+    android:id="@+id/iv_home_scrapicon"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:layout_marginRight="15dp"
+    android:background="#00FFFFFF"
+    android:scaleType="fitCenter"
+    android:src="@drawable/scrap_icon" />
+
+<ImageButton
+    android:id="@+id/iv_home_homeicon"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:layout_marginRight="15dp"
+    android:background="#00FFFFFF"
+    android:scaleType="fitCenter"
+    android:src="@drawable/home_icon" />
+
+<ImageButton
+    android:id="@+id/iv_home_rooticon"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:layout_marginRight="15dp"
+    android:background="#00FFFFFF"
+    android:scaleType="fitCenter"
+    android:src="@drawable/root_icon" />
+
+<ImageButton
+    android:id="@+id/iv_home_mypageicon"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:background="#00FFFFFF"
+    android:scaleType="fitCenter"
+    android:src="@drawable/mypage_icon" />
+
+</LinearLayout>-->

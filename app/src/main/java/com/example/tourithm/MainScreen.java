@@ -11,25 +11,27 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-public class Home extends AppCompatActivity {
+public class MainScreen extends AppCompatActivity {
+    private FragmentManager fragmentManager = getSupportFragmentManager();
+    private FragmentTest fragmentTest = new FragmentTest();
+
     private DrawerLayout drawerLayout;
     private View drawerView;
 
@@ -37,14 +39,14 @@ public class Home extends AppCompatActivity {
     private Toast toast;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homescreen);
+        setContentView(R.layout.main_screen);
 
         String loginUser;
         Intent intent = getIntent();
         loginUser = intent.getStringExtra("user_id");
-        Log.d("[DEBUG] USER ID INTENT RESPONSE: ", loginUser + " 님");
+        Log.d("[DEBUG] USER ID INTENT RESPONSE: ", loginUser + " 님 로그인");
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -53,6 +55,10 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼 활성화
         getSupportActionBar().setDisplayShowTitleEnabled(false); // 앱 기본 타이틀(Tourithm) 없애기
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#cae3ff")));
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.frameLayout, new FragmentTest());
+        fragmentTransaction.commit();
 
         // Navigation Bar 아이템 동적 추가
         LinearLayout ll_navigation_container = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.navbar_head, null);
@@ -153,46 +159,6 @@ public class Home extends AppCompatActivity {
                 return true;
             }
         });
-
-
-        /*drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        drawerView = (View)findViewById(R.id.drawer2);
-
-        //drawerLayout.setDrawerListener(listener);
-        drawerLayout.addDrawerListener(listener);
-        drawerView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
-
-        ImageButton buttonMenu = (ImageButton) findViewById(R.id.iv_hr_menuicon); // NavBar(Side Menu) Open
-        buttonMenu.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!drawerLayout.isDrawerOpen(Gravity.RIGHT)) {
-                    drawerLayout.openDrawer(Gravity.RIGHT);
-                }
-            }
-        });
-
-        Button buttonClose = (Button) findViewById(R.id.dw_btn_close); // NavBar(Side Menu) Close
-        buttonClose.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    drawerLayout.closeDrawer(Gravity.RIGHT);
-            }
-        });
-
-        Button buttonLogin = (Button) findViewById(R.id.nav_login); // Press Login Button
-        buttonLogin.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent loginintent = new Intent(getApplicationContext(), Login.class);
-                startActivity(loginintent);
-            }
-        });*/
     }
 
     @Override
@@ -209,34 +175,41 @@ public class Home extends AppCompatActivity {
             case R.id.tb_menu : {
                 if (!drawerLayout.isDrawerOpen(Gravity.RIGHT)) {
                     drawerLayout.openDrawer(Gravity.RIGHT);
+                    return true;
                 }
+            }
+            case android.R.id.home : {
+                finish();
                 return true;
             }
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-    /*DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() {
-        @Override
-        public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
-            // 슬라이드 했을때
-        }
 
+    class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
-        public void onDrawerOpened(@NonNull View drawerView) {
-            // Drawer가 오픈된 상황일때 호출
-        }
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-        @Override
-        public void onDrawerClosed(@NonNull View drawerView) {
-            // 닫힌 상황일 때 호출
-        }
+            transaction.replace(R.id.frameLayout, fragmentTest).commitAllowingStateLoss();
 
-        @Override
-        public void onDrawerStateChanged(int newState) {
-            // 특정상태가 변결될 때 호출
+            /*switch(menuItem.getItemId())
+            {
+                case R.id.searchItem:
+                    transaction.replace(R.id.frameLayout, fragmentSearch).commitAllowingStateLoss();
+
+                    break;
+                case R.id.cameraItem:
+                    transaction.replace(R.id.frameLayout, fragmentCamera).commitAllowingStateLoss();
+                    break;
+                case R.id.callItem:
+                    transaction.replace(R.id.frameLayout, fragmentCall).commitAllowingStateLoss();
+                    break;
+            }*/
+            return true;
         }
-    };*/
+    }
 
     @Override
     public void onBackPressed() {  // 뒤로가기 버튼 클릭한 경우
@@ -244,21 +217,22 @@ public class Home extends AppCompatActivity {
         if (drawer.isDrawerOpen(Gravity.RIGHT)) {
             drawer.closeDrawer(Gravity.RIGHT);
         } // Navigation Drawer가 열려있다면 종료
-
-        // 메인 화면에서 뒤로가기 버튼 2회 누르면 앱 종료
-        // 2000 milliseconds = 2 seconds
-        // 가장 최근에 뒤로가기 버튼을 누른 시간에 2초를 더해 현재시간과 비교 후, 2초가 지났으면 메시지 출력
-        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
-            backKeyPressedTime = System.currentTimeMillis();
-            toast = Toast.makeText(this, "뒤로가기 버튼을 다시 누르면 종료됩니다.", Toast.LENGTH_SHORT);
-            toast.show();
-            return;
-        }
-        // 2초가 지나지 않은 시점에서 뒤로가기 다시 클릭시 앱 종료
-        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
-            toast.cancel();  // 알림 팝업(Toast) 표시 해제
-            ActivityCompat.finishAffinity(this);
-            System.exit(0);  // 시스템 종료
+        else {
+            // 메인 화면에서 뒤로가기 버튼 2회 누르면 앱 종료
+            // 2000 milliseconds = 2 seconds
+            // 가장 최근에 뒤로가기 버튼을 누른 시간에 2초를 더해 현재시간과 비교 후, 2초가 지났으면 메시지 출력
+            if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+                backKeyPressedTime = System.currentTimeMillis();
+                toast = Toast.makeText(this, "뒤로가기 버튼을 다시 누르면 종료됩니다.", Toast.LENGTH_SHORT);
+                toast.show();
+                return;
+            }
+            // 2초가 지나지 않은 시점에서 뒤로가기 다시 클릭시 앱 종료
+            if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+                toast.cancel();  // 알림 팝업(Toast) 표시 해제
+                ActivityCompat.finishAffinity(this);
+                System.exit(0);  // 시스템 종료
+            }
         }
     }
 }

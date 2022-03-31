@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                         Log.d("[TAG] 로그인 디버깅", "(로그인 성공) 아이디, 비밀번호 일치");
 
-                        Intent intent = new Intent(getApplicationContext(), Home.class);
+                        Intent intent = new Intent(getApplicationContext(), MainScreen.class);
                         intent.putExtra("user_id", user_id);
 
                         startActivity(intent);

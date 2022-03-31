@@ -4,15 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/Tourithm/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Android/Tourithm/app/src/main/res/layout/homescreen.xml" value="0.33" />
+        <entry key="..\:/Android/Tourithm/app/src/main/res/layout/homescreen.xml" value="0.1" />
         <entry key="..\:/Android/Tourithm/app/src/main/res/layout/login.xml" value="0.15670289855072464" />
+        <entry key="..\:/Android/Tourithm/app/src/main/res/layout/main_screen.xml" value="0.25407608695652173" />
         <entry key="..\:/Android/Tourithm/app/src/main/res/layout/marker_info_item.xml" value="0.23645833333333333" />
         <entry key="..\:/Android/Tourithm/app/src/main/res/layout/navbar.xml" value="0.33" />
+        <entry key="..\:/Android/Tourithm/app/src/main/res/layout/navbar_bottom.xml" value="0.36614583333333334" />
         <entry key="..\:/Android/Tourithm/app/src/main/res/layout/navbar_btn.xml" value="0.23645833333333333" />
         <entry key="..\:/Android/Tourithm/app/src/main/res/layout/navbar_head.xml" value="0.3515625" />
         <entry key="..\:/Android/Tourithm/app/src/main/res/layout/navbar_menu.xml" value="0.36614583333333334" />
+        <entry key="..\:/Android/Tourithm/app/src/main/res/layout/review_item.xml" value="0.2453125" />
         <entry key="..\:/Android/Tourithm/app/src/main/res/layout/scrap.xml" value="0.2767210144927536" />
+        <entry key="..\:/Android/Tourithm/app/src/main/res/layout/toolbar.xml" value="0.33" />
         <entry key="..\:/Android/Tourithm/app/src/main/res/layout/tour_detail_info.xml" value="0.2767210144927536" />
+        <entry key="..\:/Android/Tourithm/app/src/main/res/menu/navbar_bottom.xml" value="0.36614583333333334" />
+        <entry key="..\:/Android/Tourithm/app/src/main/res/menu/navbar_menu.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/SAMSUNG/AndroidStudioProjects/Tourithm/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
       </map>
     </option>

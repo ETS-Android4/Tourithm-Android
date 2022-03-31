@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(MainActivity.this, Home.class);
+                Intent i = new Intent(MainActivity.this, MainScreen.class);
                 //i.putExtra("user_id", null);
                 startActivity(i);
                 finish();
             }
-        }, 3000); // 4초 대기
+        }, 1000); // 1초 대기
     }
 }

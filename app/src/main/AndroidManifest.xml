@@ -41,7 +41,7 @@
                 </activity>
         -->
 
-        <activity android:name=".Home" />
+        <activity android:name=".MainScreen" />
         <activity android:name=".PlaceData" />
         <activity android:name=".PlaceData_Activity" />
 
