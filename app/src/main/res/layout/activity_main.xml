@@ -30,5 +30,4 @@
         android:textAlignment="center"
         tools:ignore="RtlCompat" />
 
-
 </LinearLayout>
