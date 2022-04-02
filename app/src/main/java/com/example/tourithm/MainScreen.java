@@ -31,6 +31,7 @@ import com.google.android.material.navigation.NavigationView;
 public class MainScreen extends AppCompatActivity {
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private FragmentTest fragmentTest = new FragmentTest();
+    private FragmentLocal fragmentLocal = new FragmentLocal();
 
     private DrawerLayout drawerLayout;
     private View drawerView;
@@ -56,9 +57,11 @@ public class MainScreen extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false); // 앱 기본 타이틀(Tourithm) 없애기
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#cae3ff")));
 
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        /*FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.frameLayout, new FragmentTest());
-        fragmentTransaction.commit();
+        fragmentTransaction.commit();*/
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout, fragmentTest).commit();
 
         // Navigation Bar 아이템 동적 추가
         LinearLayout ll_navigation_container = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.navbar_head, null);
@@ -184,6 +187,14 @@ public class MainScreen extends AppCompatActivity {
             }
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    // 버튼 클릭 시 fragment 변경
+    public void onFragmentChange(String btn) {
+        // 지역, 테마별 클릭 시
+        if(btn=="theme") {
+            getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout, fragmentLocal).commit();
         }
     }
 

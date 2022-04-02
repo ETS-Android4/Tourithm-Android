@@ -7,13 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentTest extends Fragment implements View.OnClickListener {
+public class FragmentLocal extends Fragment implements View.OnClickListener {
     MainScreen mainScreen;
 
     @Override
@@ -32,21 +31,12 @@ public class FragmentTest extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.homescreen, container, false);
-
-        ImageButton btn = viewGroup.findViewById(R.id.theme_btn);
-        btn.setOnClickListener(this);
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.localchoice, container, false);
 
         return viewGroup;
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.theme_btn:
-                 mainScreen.onFragmentChange("theme");
-                break;
-        }
     }
-
 }
