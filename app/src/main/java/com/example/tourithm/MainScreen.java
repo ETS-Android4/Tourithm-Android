@@ -53,6 +53,7 @@ public class MainScreen extends AppCompatActivity {
 
         // 상단 ToolBar 설정 (API 25 이후 AppBar 사용 X -> ToolBar로 대체)
         setSupportActionBar((Toolbar)findViewById(R.id.toolbar)); // 액션바를 툴바로 바꿔줌 (해당 액티비티에서 툴바를 사용하겠다는 의미)
+        getSupportActionBar().setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼 활성화
         getSupportActionBar().setDisplayShowTitleEnabled(false); // 앱 기본 타이틀(Tourithm) 없애기
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#cae3ff")));
