@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Tourithm/app/src/main/res/layout/activity_main.xml" value="0.24230072463768115" />
+        <entry key="..\:/Tourithm/app/src/main/res/layout/app_bar_main.xml" value="0.25" />
         <entry key="..\:/Tourithm/app/src/main/res/layout/comment_item.xml" value="0.3428442028985507" />
+        <entry key="..\:/Tourithm/app/src/main/res/layout/content_main.xml" value="0.2635416666666667" />
         <entry key="..\:/Tourithm/app/src/main/res/layout/data_item.xml" value="0.3125" />
         <entry key="..\:/Tourithm/app/src/main/res/layout/data_list.xml" value="0.3125" />
         <entry key="..\:/Tourithm/app/src/main/res/layout/food_detail_info.xml" value="0.3428442028985507" />
@@ -20,6 +22,7 @@
         <entry key="..\:/Tourithm/app/src/main/res/layout/main_screen.xml" value="0.25" />
         <entry key="..\:/Tourithm/app/src/main/res/layout/map.xml" value="0.3125" />
         <entry key="..\:/Tourithm/app/src/main/res/layout/marker_info_item.xml" value="0.3125" />
+        <entry key="..\:/Tourithm/app/src/main/res/layout/mobile_navigation.xml" value="0.24895833333333334" />
         <entry key="..\:/Tourithm/app/src/main/res/layout/navbar.xml" value="0.5" />
         <entry key="..\:/Tourithm/app/src/main/res/layout/navbar_head.xml" value="0.3125" />
         <entry key="..\:/Tourithm/app/src/main/res/layout/review_item.xml" value="0.3125" />
@@ -31,6 +34,7 @@
         <entry key="..\:/Tourithm/app/src/main/res/layout/write_review.xml" value="0.3428442028985507" />
         <entry key="..\:/Tourithm/app/src/main/res/menu/navbar_bottom.xml" value="0.2635416666666667" />
         <entry key="..\:/Tourithm/app/src/main/res/menu/navbar_btn.xml" value="0.2635416666666667" />
+        <entry key="..\:/Tourithm/app/src/main/res/menu/navbar_menu.xml" value="0.2635416666666667" />
         <entry key="..\:/Users/SAMSUNG/AndroidStudioProjects/Tourithm/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
       </map>
     </option>
