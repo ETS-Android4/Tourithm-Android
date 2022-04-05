@@ -11,41 +11,9 @@
         리스트 : sc_scrap_list
     -->
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#cae3ff"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#00FF0000"
-            android:scaleType="fitCenter"
-            android:id="@+id/sc_home_backicon"
-            android:src="@drawable/back_icon" />
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:src="@drawable/logo" />
-
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#00FF0000"
-            android:scaleType="fitCenter"
-            android:src="@drawable/menu_icon"
-            android:id="@+id/sc_home_menuicon" />
-
-    </LinearLayout>
-
     <ListView
         android:id="@+id/sc_scrap_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
 
 </LinearLayout>

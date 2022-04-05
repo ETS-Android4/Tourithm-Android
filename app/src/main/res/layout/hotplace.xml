@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <!--   id 이름
     뒤로 가기  :  iv_hp_backicon
     메뉴  :  iv_hp_menuicon
@@ -13,39 +12,6 @@
     홈  :  iv_hp_homeicon
     루트  :  iv_hp_rooticon
     마이페이지  :  iv_hp_mypageicon     -->
-
-
-    <!-- 상단바 -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="#cae3ff"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#00FFFFFF"
-            android:scaleType="fitCenter"
-            android:id="@+id/iv_hp_backicon"
-            android:src="@drawable/back_icon" />
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:src="@drawable/logo" />
-
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#00FF0000"
-            android:scaleType="fitCenter"
-            android:src="@drawable/menu_icon"
-            android:id="@+id/iv_hp_menuicon" />
-
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -75,7 +41,6 @@
             android:textSize="15dp" />
     </LinearLayout>
 
-
     <!-- 리스트뷰 -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -86,61 +51,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/lv_hotplace"/>
-
-    </LinearLayout>
-
-    <!-- 하단바 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:elevation="15dp">
-
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="#00FFFFFF"
-            android:scaleType="fitCenter"
-            android:id="@+id/iv_hp_searchicon"
-            android:src="@drawable/search_icon"
-            android:layout_marginRight="15dp" />
-
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="#00FFFFFF"
-            android:scaleType="fitCenter"
-            android:id="@+id/iv_hp_scrapicon"
-            android:src="@drawable/scrap_icon"
-            android:layout_marginRight="15dp" />
-
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="#00FFFFFF"
-            android:scaleType="fitCenter"
-            android:id="@+id/iv_hp_homeicon"
-            android:src="@drawable/home_icon"
-            android:layout_marginRight="15dp" />
-
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="#00FFFFFF"
-            android:scaleType="fitCenter"
-            android:id="@+id/iv_hp_rooticon"
-            android:src="@drawable/root_icon"
-            android:layout_marginRight="15dp" />
-
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="#00FFFFFF"
-            android:scaleType="fitCenter"
-            android:id="@+id/iv_hp_mypageicon"
-            android:src="@drawable/mypage_icon" />
 
     </LinearLayout>
 

@@ -17,36 +17,6 @@
     -->
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#cae3ff"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#00FF0000"
-            android:scaleType="fitCenter"
-            android:id="@+id/rw_home_backicon"
-            android:src="@drawable/back_icon" />
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:src="@drawable/logo" />
-
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#00FF0000"
-            android:scaleType="fitCenter"
-            android:src="@drawable/menu_icon"
-            android:id="@+id/rw_home_menuicon" />
-
-    </LinearLayout>
-
-    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -70,7 +40,6 @@
             android:text="에 대한 솔직한 리뷰를 써주세요."/>
 
     </LinearLayout>
-
 
     <RatingBar
         android:id="@+id/rw_star"
@@ -153,7 +122,6 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -182,6 +150,5 @@
 
 
     </LinearLayout>
-
 
 </LinearLayout>

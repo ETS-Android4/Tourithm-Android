@@ -182,10 +182,6 @@ public class MainScreen extends AppCompatActivity {
                     return true;
                 }
             }
-            case android.R.id.home : {
-                finish();
-                return true;
-            }
             default:
                 return super.onOptionsItemSelected(item);
         }
