@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -54,7 +53,7 @@ public class FragmentLocal extends Fragment implements View.OnClickListener {
 
         listview1 = viewGroup.findViewById(R.id.locallist1);
         listview2 = viewGroup.findViewById(R.id.locallist2);
-        listview1.setSelector(R.drawable.arrow2);
+        listview1.setSelector(R.drawable.arrow);
         arrayList = new ArrayList<>();
 
         new FragmentLocal.Select_local_Request().execute();
