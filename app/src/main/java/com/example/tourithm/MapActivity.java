@@ -130,11 +130,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     infodata[index][3] = road;
                     infodata[index][4] = tel;
 
-                    for(int index2 = 0; index2 < 5; index2++)
-                        System.out.println("[infodata]"+infodata[index][index2]);
-                }
-                Log.d("[latlng]", String.valueOf(latlng.length));
+                    // 마커 찍기
+                    addInfo(latlng[index]);
 
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -167,11 +166,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         // 권한 확인
         ActivityCompat.requestPermissions(this, PERMISSIONS, LOCATION_PERMISSION_REQUEST_CODE);
 
-        // 마커 찍기
-        for(int index = 0; index < 100; index++){ //
-            // addInfo(latlng[index]);
-        }
-
         // -- 정보창 띄우기 --
 
         // 지도를 클릭하면 정보 창을 닫음
@@ -185,7 +179,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void addInfo(LatLng latLng) {
         Marker marker = new Marker();
 
-        //marker.setPosition(latLng);
+        marker.setPosition(latLng);
         marker.setMap(naverMap);
 
         // 마커 크기
