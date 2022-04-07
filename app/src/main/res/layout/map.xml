@@ -12,46 +12,155 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <com.naver.maps.map.widget.LocationButtonView
+        android:id="@+id/map_gps_bt"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp" />
+
     <LinearLayout
+        android:id="@+id/map_mark_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/white_background"
-        android:orientation="horizontal">
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/info_white_background"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-        <ImageButton
-            android:id="@+id/map_menu_bt"
-            android:layout_width="50dp"
-            android:layout_height="46dp"
-            android:layout_weight="1"
-            android:background="#00FF0000"
-            android:scaleType="fitCenter"
-            android:src="@drawable/menu_icon"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/map_input"
-            android:layout_width="wrap_content"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="40"
-            android:inputType="text"
-            android:background="@drawable/input_white"
-            android:textColorHint="#919191"
-            android:hint="검색어" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/map_search_bt"
-            android:layout_width="50dp"
-            android:layout_height="46dp"
-            android:layout_weight="1"
-            android:background="#00FF0000"
-            android:src="@drawable/search_icon"
-            android:scaleType="centerCrop" />
+                <TextView
+                    android:id="@+id/mark_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="가게 및 관광지명"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/mark_addr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:text="주소"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/mark_telnum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:text="010-1234-1234"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="코로나 현황 : "
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/mark_corona"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="50"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/mark_image"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ex" />
+
+        </LinearLayout>
+
+        <!--
+            이거 음식 마크는 #D29D76 이 색상으로 변환 가능?
+        -->
+        <View
+            android:id="@+id/mark_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="#9FCC7B" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/mark_tel_bt"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:background="#00FF0000"
+                android:padding="3dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tele" />
+
+            <ImageButton
+                android:id="@+id/mark_scrap"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:background="#00FF0000"
+                android:padding="2dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/star" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/mark_find_way"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:background="#00FF0000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/findway_btn" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
+
 
 
 

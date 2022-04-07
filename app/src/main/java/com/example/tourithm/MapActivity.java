@@ -1,13 +1,17 @@
 package com.example.tourithm;
 
 import android.Manifest;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.ViewGroup;
+import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
-import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
 
 import com.naver.maps.geometry.LatLng;
@@ -15,16 +19,24 @@ import com.naver.maps.map.CameraUpdate;
 import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapFragment;
 import com.naver.maps.map.NaverMap;
-import com.naver.maps.map.overlay.InfoWindow;
+import com.naver.maps.map.OnMapReadyCallback;
+import com.naver.maps.map.UiSettings;
 import com.naver.maps.map.overlay.Marker;
-import com.naver.maps.map.overlay.Overlay;
 import com.naver.maps.map.overlay.OverlayImage;
 import com.naver.maps.map.util.FusedLocationSource;
+import com.naver.maps.map.widget.LocationButtonView;
 
-import Adapter.MapAdapter;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
-public class MapActivity extends FragmentActivity implements com.naver.maps.map.OnMapReadyCallback{
+public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private NaverMap naverMap;
     private FusedLocationSource locationSource;
@@ -34,18 +46,22 @@ public class MapActivity extends FragmentActivity implements com.naver.maps.map.
             Manifest.permission.ACCESS_COARSE_LOCATION
     };
 
-    private Marker pl_marker = new Marker(); // 장소 마커
-    private Marker fo_marker = new Marker(); // 음식 마커
-
-    private InfoWindow infoWindow = new InfoWindow();
+    LatLng[] latlng = new LatLng[100];
+    String[][] infodata = new String[100][5];
+    LinearLayout info;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map);
 
-        FragmentManager fm = getSupportFragmentManager();
+        new MapActivity.Select_local_Request().execute();
 
+        info = findViewById(R.id.map_mark_info);
+        // 정보창 가리기
+        info.setVisibility(View.GONE);
+
+        FragmentManager fm = getSupportFragmentManager();
         MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentById(R.id.map_view);
 
         if(mapFragment == null){
@@ -58,78 +74,126 @@ public class MapActivity extends FragmentActivity implements com.naver.maps.map.
 
     }
 
+    // DB - 데이터 불러오기
+    class Select_local_Request extends AsyncTask<String, Integer, String> {
+        String result = null;
+        @Override
+        protected String doInBackground(String... rurls) {
+            try {
+                URL url = new URL("https://idox23.cafe24.com/Tourithm/PlaceData_result.php");
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.connect();
+
+                if(conn.getResponseCode()==HttpURLConnection.HTTP_OK) {
+                    InputStreamReader inputStreamReader = new InputStreamReader(conn.getInputStream());
+                    BufferedReader reader = new BufferedReader(inputStreamReader);
+                    StringBuilder stringBuilder = new StringBuilder();
+                    String line = "";
+                    while ((line = reader.readLine()) != null) {
+                        stringBuilder.append(line);
+                    }
+                    result = stringBuilder.toString();
+                } else {
+                    result = "error";
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return result;
+        }
+
+        protected void onPostExecute(String _result) {
+            try {
+                JSONObject root = new JSONObject(_result);
+                JSONArray results = new JSONArray(root.getString("results"));
+
+                for (int index = 0; index < results.length(); index++) {
+                    JSONObject Content = results.getJSONObject(index);
+
+                    // 관광지명, 도로주소, 위도, 경도, 전번 순
+                    String name = Content.getString("name");
+                    String road = Content.getString("add_road");
+                    double latitude = Content.getDouble("latitude");
+                    double longitude = Content.getDouble("longitude");
+                    String tel = Content.getString("tel");
+
+                    // 데이터 위도 경도 배열에 넣기
+                    latlng[index] = new LatLng(latitude, longitude);
+
+                    // double -> String
+                    String st_latitude = Double.toString(latitude);
+                    String st_longitude = Double.toString(latitude);
+                    // 데이터 배열에 넣기
+                    infodata[index][0] = st_latitude;
+                    infodata[index][1] = st_longitude;
+                    infodata[index][2] = name;
+                    infodata[index][3] = road;
+                    infodata[index][4] = tel;
+
+                    for(int index2 = 0; index2 < 5; index2++)
+                        System.out.println("[infodata]"+infodata[index][index2]);
+                }
+                Log.d("[latlng]", String.valueOf(latlng.length));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @UiThread
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
+
         // 지도 유형
         naverMap.setMapType(NaverMap.MapType.Basic);
 
-        /* 현재 위치 표시 _ GPS 나중에 폰으로 할 때 주석 풀기
-        naverMap.setLocationSource(locationSource);
-        // 권환확인
-        ActivityCompat.requestPermissions(this, PERMISSIONS, LOCATION_PERMISSION_REQUEST_CODE);
-        */
-
-        // 위도 경도 _ 필요하면 많이 만들기
-        LatLng latlng = new LatLng(35.145452, 129.036782);
-
+        // 위도 경도
+        LatLng exlatlng = new LatLng(35.145452, 129.036782);
         // 지도 중심 (임의)
-        CameraUpdate cameraUpdate = CameraUpdate.scrollTo(latlng);
+        CameraUpdate cameraUpdate = CameraUpdate.scrollTo(exlatlng);
         naverMap.moveCamera(cameraUpdate);
 
-        // 마커 _ 관광지
-        // 숫자 대신 Marker.SIZE_AUTO 하면 자동으로 크기 설정됨
-        pl_marker.setWidth(70);
-        pl_marker.setHeight(100);
-        // 마커 모양
-        pl_marker.setIcon(OverlayImage.fromResource(R.drawable.place_mark));
-        // 마커 위치
-        pl_marker.setPosition(latlng);
-        pl_marker.setMap(naverMap);
-        // 지도를 기울려도 마커 모양이 그대로 유지
-        pl_marker.setFlat(false);
+        // ui : GPS
+        UiSettings uiSettings = naverMap.getUiSettings();
+        uiSettings.setLocationButtonEnabled(false);
+        LocationButtonView locationButtonView = findViewById(R.id.map_gps_bt);
+        locationButtonView.setMap(naverMap);
+        // 내위치로 이동하기 ( 폰으로 할때 주석 풀기 )
+        //naverMap.setLocationSource(locationSource);
+        //naverMap.setLocationTrackingMode(LocationTrackingMode.Follow);
 
+        // 권한 확인
+        ActivityCompat.requestPermissions(this, PERMISSIONS, LOCATION_PERMISSION_REQUEST_CODE);
 
-        /*
-        * https://navermaps.github.io/android-map-sdk/guide-ko/5-3.html
-        * 여기 참고
-        * pl_marker 이것도 바꿔야할거같기도 ㅇㅅㅇ 나중에 음식한다면..?
-        */
+        // 마커 찍기
+        for(int index = 0; index < 100; index++){ //
+            // addInfo(latlng[index]);
+        }
+
+        // -- 정보창 띄우기 --
 
         // 지도를 클릭하면 정보 창을 닫음
         naverMap.setOnMapClickListener((coord, point) -> {
-            infoWindow.close();
+            info.setVisibility(View.GONE);
         });
 
-        // 마커를 클릭하면
-        Overlay.OnClickListener listener = overlay1 -> {
+    }
 
-            if (pl_marker.getInfoWindow() == null) {
-                // 현재 마커에 정보 창이 열려있지 않을 경우 엶
-                infoWindow.open(pl_marker);
+    // 마커 찍기
+    public void addInfo(LatLng latLng) {
+        Marker marker = new Marker();
 
-                // 정보창 띄우기
-                ViewGroup rootView = (ViewGroup) findViewById(R.id.fragment_container);
-                MapAdapter adapter = new MapAdapter(MapActivity.this,rootView);
+        //marker.setPosition(latLng);
+        marker.setMap(naverMap);
 
-                infoWindow.setAdapter(adapter);
+        // 마커 크기
+        marker.setWidth(70);
+        marker.setHeight(100);
 
-                //인포창의 우선순위
-                infoWindow.setZIndex(10);
-                //투명도 조정
-                infoWindow.setAlpha(0.95f);
-                //인포창 표시
-                infoWindow.open(pl_marker);
-            } else {
-                // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
-                infoWindow.close();
-            }
-            return true;
-        };
-
-        pl_marker.setOnClickListener(listener); // 마커 클릭시
-
+        // 마커 모양
+        marker.setIcon(OverlayImage.fromResource(R.drawable.place_mark));
     }
 
     // 현재위치 권한 확인
