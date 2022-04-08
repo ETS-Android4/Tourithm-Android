@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +17,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
 
 import com.naver.maps.geometry.LatLng;
+import com.naver.maps.map.CameraAnimation;
 import com.naver.maps.map.CameraUpdate;
 import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapFragment;
@@ -22,6 +25,7 @@ import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.UiSettings;
 import com.naver.maps.map.overlay.Marker;
+import com.naver.maps.map.overlay.Overlay;
 import com.naver.maps.map.overlay.OverlayImage;
 import com.naver.maps.map.util.FusedLocationSource;
 import com.naver.maps.map.widget.LocationButtonView;
@@ -74,6 +78,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     }
 
+
+
+
     // DB - 데이터 불러오기
     class Select_local_Request extends AsyncTask<String, Integer, String> {
         String result = null;
@@ -122,7 +129,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
                     // double -> String
                     String st_latitude = Double.toString(latitude);
-                    String st_longitude = Double.toString(latitude);
+                    String st_longitude = Double.toString(longitude);
                     // 데이터 배열에 넣기
                     infodata[index][0] = st_latitude;
                     infodata[index][1] = st_longitude;
@@ -132,6 +139,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
                     // 마커 찍기
                     addInfo(latlng[index]);
+
+                    Log.d("[latlng]", latlng[index].toString());
+                    for(int i = 0; i < 5; i++){
+                        Log.d("[infodata]", infodata[index][i]);
+                    }
 
                 }
             } catch (JSONException e) {
@@ -149,7 +161,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         naverMap.setMapType(NaverMap.MapType.Basic);
 
         // 위도 경도
-        LatLng exlatlng = new LatLng(35.145452, 129.036782);
+        LatLng exlatlng = new LatLng(37.3479964585, 126.9005247934);
         // 지도 중심 (임의)
         CameraUpdate cameraUpdate = CameraUpdate.scrollTo(exlatlng);
         naverMap.moveCamera(cameraUpdate);
@@ -166,8 +178,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         // 권한 확인
         ActivityCompat.requestPermissions(this, PERMISSIONS, LOCATION_PERMISSION_REQUEST_CODE);
 
-        // -- 정보창 띄우기 --
-
         // 지도를 클릭하면 정보 창을 닫음
         naverMap.setOnMapClickListener((coord, point) -> {
             info.setVisibility(View.GONE);
@@ -175,8 +185,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     }
 
-    // 마커 찍기
+    // 마커 관련
     public void addInfo(LatLng latLng) {
+
+        TextView title = (TextView) findViewById(R.id.mark_title);
+        TextView addr = (TextView) findViewById(R.id.mark_addr);
+        TextView tel = (TextView) findViewById(R.id.mark_telnum);
+
         Marker marker = new Marker();
 
         marker.setPosition(latLng);
@@ -186,8 +201,50 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         marker.setWidth(70);
         marker.setHeight(100);
 
+        //marker.setOnClickListener(this);
         // 마커 모양
         marker.setIcon(OverlayImage.fromResource(R.drawable.place_mark));
+
+        // 마커 클릭시
+        marker.setOnClickListener(new Overlay.OnClickListener() {
+            @Override
+            public boolean onClick(@NonNull Overlay overlay) {
+                if(overlay instanceof Marker) {
+
+                    // 클릭한 좌표
+                    LatLng lat = marker.getPosition().toLatLng();
+                    // System.out.println("lat : " + lat);
+
+                    // 배열 좌표
+                    for(int i = 0; i < 100; i++){
+                        Double aa = Double.parseDouble(infodata[i][0]);
+                        Double ab = Double.parseDouble(infodata[i][1]);
+                        LatLng c = new LatLng(aa, ab);
+
+                        // 두 좌표의 값이 같은지
+                        boolean B = lat.equals(c);
+                        if(B == true){ // 같다면
+                            // 사진, 코로나 수 어캄??
+                            title.setText(infodata[i][2]);
+                            addr.setText(infodata[i][3]);
+                            tel.setText(infodata[i][4]);
+                            findViewById(R.id.map_mark_info).setVisibility(View.VISIBLE); // 정보창 보이게
+
+                            // 카메라 이동 애니메이션
+                            CameraUpdate cameraUpdate = CameraUpdate.scrollAndZoomTo(
+                                    new LatLng(aa, ab),14)
+                                    .animate(CameraAnimation.Fly, 1000);
+                            naverMap.moveCamera(cameraUpdate);
+
+
+                        }
+
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     // 현재위치 권한 확인
