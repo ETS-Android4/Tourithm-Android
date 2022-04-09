@@ -1,4 +1,4 @@
-package Adapter;
+package com.example.tourithm;
 
 import android.content.Context;
 import android.view.LayoutInflater;
