@@ -5,6 +5,12 @@
         android:id="@+id/tb_menu"
         android:icon="@drawable/menu_icon"
         android:title="menu"
-        app:showAsAction="always"
-        android:orderInCategory="1" />
+        app:showAsAction="never" />
 </menu>
+
+<!--
+
+        app:showAsAction="always"
+        android:orderInCategory="1"
+
+        -->

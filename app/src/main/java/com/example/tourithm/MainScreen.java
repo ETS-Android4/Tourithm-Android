@@ -1,7 +1,10 @@
 package com.example.tourithm;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.tourithm.databinding.MainScreenBinding;
 import com.google.android.material.navigation.NavigationView;
@@ -23,6 +26,7 @@ public class MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         binding = MainScreenBinding.inflate(getLayoutInflater());
+        // binding = DataBindingUtil.setContentView(this, R.layout.main_screen);
         setContentView(binding.getRoot());
 
         /*String loginUser;
@@ -79,6 +83,22 @@ public class MainScreen extends AppCompatActivity {
             });
         }*/
     }
+
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                Toast.makeText(this, "Back Button", Toast.LENGTH_SHORT);
+                return true;
+            }
+            case R.id.tb_menu:{
+                drawerLayout.openDrawer(Gravity.RIGHT);
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
