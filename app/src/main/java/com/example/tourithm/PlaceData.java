@@ -20,7 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import Adapter.PlaceData_Adapter;
+import com.example.tourithm.PlaceData_Adapter;
 
 public class PlaceData extends AppCompatActivity {
 
